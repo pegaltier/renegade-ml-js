@@ -1,0 +1,32 @@
+name: Publish to npm
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  id-token: write
+
+jobs:
+  publish:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: dtolnay/rust-toolchain@stable
+        with:
+          targets: wasm32-unknown-unknown
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          registry-url: https://registry.npmjs.org
+      - uses: jetli/wasm-pack-action@v0.4.0
+      - run: npm install -g npm@latest
+      - run: node -e "if (require('./package.json').name !== 'renegade-ml-js') throw new Error('Expected package name renegade-ml-js')"
+      - run: npm ci
+      - run: npm run build
+      - run: npm test
+      - run: npm run test:types
+      - run: npm pack --ignore-scripts --dry-run
+      - run: npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

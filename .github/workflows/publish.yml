@@ -28,5 +28,3 @@ jobs:
       - run: npm run test:types
       - run: npm pack --ignore-scripts --dry-run
       - run: npm publish
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}

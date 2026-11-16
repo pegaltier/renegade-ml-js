@@ -23,12 +23,12 @@
     "build:web": "wasm-pack build --release --target web --out-dir dist/web --out-name renegade && node -e \"require('node:fs').rmSync('dist/web/.gitignore', { force: true })\"",
     "build": "npm run build:node && npm run build:web",
     "test": "node --test test/model.test.js",
-    "test:types": "tsgo --noEmit --strict --module nodenext --target es2022 test/types.ts",
+    "test:types": "tsc --noEmit --strict --module nodenext --target es2022 test/types.ts",
     "check:rust": "cargo fmt --check && cargo clippy --target wasm32-unknown-unknown -- -D warnings",
     "prepack": "npm run build"
   },
   "devDependencies": {
-    "@typescript/native-preview": "7.0.0-dev.20260707.2"
+    "typescript": "7.0.2"
   },
   "engines": { "node": ">=20" }
 }

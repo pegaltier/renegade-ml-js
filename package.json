@@ -1,7 +1,11 @@
 {
-  "name": "renegade-js",
+  "name": "renegade-ml-js",
   "version": "0.1.0",
   "description": "WebAssembly bindings for the Renegade machine learning library",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pegaltier/renegade-ml-js.git"
+  },
   "license": "LGPL-3.0-or-later",
   "type": "module",
   "files": ["dist", "src", "Cargo.toml", "Cargo.lock", "facade.js", "index.node.js", "index.web.js", "index.d.ts", "README.md", "LICENSE"],

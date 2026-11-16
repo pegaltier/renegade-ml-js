@@ -7,6 +7,8 @@ a server. This package is not the Renegade project's official JavaScript SDK.
 
 ## Usage
 
+Install with `npm install renegade-ml-js`.
+
 ```js
 import init, { Renegade } from "renegade-ml-js";
 
@@ -62,6 +64,14 @@ Install Rust with the `wasm32-unknown-unknown` target, Node.js 20+ and
 `npm run test:types`. The type check uses the TypeScript 7 native preview.
 `npm pack` builds the Node and browser artifacts before creating the
 distributable package.
+
+## Publishing
+
+After building and testing as above, verify the package contents with
+`npm pack --dry-run`. Log in to npm with `npm login`, ensure your account can
+publish `renegade-ml-js`, and run `npm publish`. npm may require two-factor
+authentication. For subsequent releases, update the version before publishing;
+an existing package version cannot be republished.
 
 ## License
 

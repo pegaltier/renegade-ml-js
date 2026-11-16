@@ -1,4 +1,4 @@
-import init, { Renegade, type Dispersion, type Feature } from "renegade-js";
+import init, { Renegade, type Dispersion, type Feature } from "renegade-ml-js";
 
 await init();
 const features: Feature[] = [{ type: "numeric", range: 10 }, { type: "categorical" }];

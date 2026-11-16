@@ -5,6 +5,10 @@ zero-configuration KNN-based supervised learner. The Rust dependency is pinned
 to `renegade-ml` 0.6.0. Training and prediction run locally; no data is sent to
 a server. This package is not the Renegade project's official JavaScript SDK.
 
+This project has not been published to npm. The existing npm package named
+`renegade-js` is unrelated; do not install it for these bindings. A published
+package will need a different name.
+
 ## Usage
 
 ```js
